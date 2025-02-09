@@ -3,12 +3,12 @@ entries:
   project_orders:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-02-09T19:49:40.1190921+03:00"
+    created: "2025-02-09T20:45:32.0407452+03:00"
     description: Orders Service
-    digest: c97d33511d1167a73a7cae0f1413f2a10fde8fe452dc66fcd64ecd018eef43ff
+    digest: 93c4bb7f166f1aa8da1b402cd18ce6c337b4bc3f06d0f47fbfb2c9217ebccfbb
     name: project_orders
     type: application
     urls:
     - project_orders-0.1.1.tgz
     version: 0.1.1
-generated: "2025-02-09T19:49:40.1180209+03:00"
+generated: "2025-02-09T20:45:32.0402105+03:00"

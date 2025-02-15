@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: postgres-init-job1
 spec:
+  ttlSecondsAfterFinished: 60  # Удалит Job через 60 секунд после завершения
   template:
     spec:
       containers:

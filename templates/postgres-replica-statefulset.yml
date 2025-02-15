@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres-shards
+  name: postgres-replica
 spec:
-  serviceName: "postgres"
-  replicas: 2  # Два Pod-а для шардинга, один под для реплики
+  serviceName: "postgres-replica"
+  replicas: 1  
   selector:
     matchLabels:
-      app: postgres
+      app: postgres-replica
   template:
     metadata:
       labels:
-        app: postgres
+        app: postgres-replica
     spec:
       containers:
-      - name: postgres
+      - name: postgres-replica
         image: postgres:16
         env:
         - name: POSTGRES_USER
@@ -23,10 +23,6 @@ spec:
           value: "postgres"
         - name: POSTGRES_DB
           value: "postgres"
-        args:
-        - "postgres"
-        - "-c"
-        - "wal_level=logical"
         resources:
           limits:
              memory: "200Mi"

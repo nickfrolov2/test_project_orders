@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: postgres-init-job2
 spec:
+  ttlSecondsAfterFinished: 60  # Удалит Job через 60 секунд после завершения
   template:
     spec:
       containers:
@@ -17,7 +18,7 @@ spec:
           command:
             - "sh"
             - "-c"
-            - "psql -h postgres-shards-2.postgres -U postgres -d postgres -f /init2.sql"
+            - "psql -h postgres-replica-0.postgres-replica -U postgres -d postgres -f /init2.sql"
           volumeMounts:
             - name: init-script2
               mountPath: /init2.sql
